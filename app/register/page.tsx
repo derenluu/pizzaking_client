@@ -1,6 +1,7 @@
 'use client';
 
 import { registerAccount } from '@/api/axios';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const RegisterPage = () => {
@@ -9,11 +10,14 @@ const RegisterPage = () => {
   const [tel, setTel] = useState('');
   const [address, setAddress] = useState('');
 
-  const handleFormSubmit = async (ev: any) => {
-    ev.preventDefault();
+  const [userCreated, setUserCreated] = useState(true);
+
+  const handleFormSubmit = async (event: any) => {
+    event.preventDefault();
     try {
       const response = await registerAccount({ email, password, tel, address });
       console.log('Registration successful:', response.data);
+      console.log('Test:', response);
       // Handle successful registration (e.g., redirect to another page)
     } catch (error) {
       console.error('Registration error:', error);
@@ -21,10 +25,32 @@ const RegisterPage = () => {
     }
   };
 
+  // const handleTest = async (ev: any) => {
+  //   ev.preventDefault();
+  //   try {
+  //     const response = await getAccount();
+  //     console.log('Registration successful:', response);
+  //   } catch (error) {
+  //     console.error('Registration error:', error);
+  //   }
+  // };
+
   return (
     <>
       <section className="mt-8">
         <h1 className="text-center text-primary text-4xl">Register</h1>
+        {userCreated && (
+          <div className="my-4 text-center">
+            User created.
+            <br /> Now you can{' '}
+            <Link
+              className="underline"
+              href={'/login'}
+            >
+              Login &raquo;
+            </Link>
+          </div>
+        )}
         <form
           action=""
           className="block max-w-sm mx-auto"
@@ -68,6 +94,12 @@ const RegisterPage = () => {
             Login with Google
           </button> */}
         </form>
+        {/* <button
+          type="button"
+          onClick={handleTest}
+        >
+          Test
+        </button> */}
       </section>
     </>
   );

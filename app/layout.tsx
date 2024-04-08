@@ -1,8 +1,8 @@
 // import Footer from '@/components/Footer';
 // import Header from '@/components/Header';
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import "@/styles/css/globals.css";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import '@/styles/css/globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
@@ -14,6 +14,14 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'Pizza King',
   description: 'Pizza King Store',
+  icons: {
+    icon: [
+      {
+        url: '/pizza.png',
+        href: '/pizza.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
