@@ -9,8 +9,8 @@ const MenuItem = () => {
             src="/pizza.png"
             alt="pizza"
             className="max-h-auto max-h-12 block mx-auto"
-            width={12}
-            height={12}
+            width={47}
+            height={47}
           />
         </div>
         <h4 className="font-semibold text-xl my-3">Pepperoni Pizza</h4>

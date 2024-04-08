@@ -1,6 +1,6 @@
 'use client';
 
-import { registerAccount } from '@/apis';
+import { registerAccount } from '@/api/axios';
 import { useState } from 'react';
 
 const RegisterPage = () => {
